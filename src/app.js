@@ -4,13 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
   new Vue ({
     el: '#app',
     data: {
-      countryUrl: null
+      countries: []
+    },
+    mounted: function() {
+      this.fetchCountries()
     },
     methods: {
-      fetchCountry: function (){
+      fetchCountries: function (){
         fetch('https://restcountries.eu/rest/v2/all')
         .then(response => response.json())
-        .then(data => this.countryUrl = data.message)
+        .then(countries => this.countries = countries)
       }
     }
   })
