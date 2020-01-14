@@ -9,9 +9,13 @@
 <body>
 
   <div id="app">
-    <select v-on:value="fetchCountries">
-      <option v-for="country in countries" v-bind="countries.name"> {{ country.name}}</option>
+    <select v-model="selectedCountry">
+      <option v-for="country in countries" v-bind:value="country"> {{ country.name}}</option>
     </select>
+
+    <h3 v-if="selectedCountry">{{selectedCountry.name}}</h3>
+    <h3>
+
   </div>
 
 </body>
